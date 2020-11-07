@@ -6,15 +6,17 @@
 </head>
 <body>
     <?php
-    $myInt = array('login' => 'vadim', 'password' => 123);
-    $newInt = $_POST['login'];
-    $newInt = $_POST['password'];
-        if ($myInf == $newInt) {
-        echo "Добро пожаловать на сайт";
-    }    
+        $myInt['vadim']=123;
+        foreach ($myInt as $key=>$value)    {
+            if ($key == $_POST['login'] && $value == $_POST['password']) {
+            echo "Добро пожаловать на сайт!";
+        }    
         else {
-            echo "Введен неверный Логин и Пароль";
+            include "index.html";
+            echo "Введен неверный Логин и Пароль!";
         }
+    }
+        
     ?>  
 </body>
 </html>
