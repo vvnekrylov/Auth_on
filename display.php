@@ -1,22 +1,21 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8">
-    <title>authentification</title>
-</head>
-<body>
-    <?php
-        $myInt['vadim']=123;
-        foreach ($myInt as $key=>$value)    {
-            if ($key == $_POST['login'] && $value == $_POST['password']) {
-            echo "Добро пожаловать на сайт!";
-        }    
-        else {
-            include "index.html";
-            echo "Введен неверный Логин и Пароль! Повторите ввод!";
+<?php
+    $myInt['vadim']=123;
+        if (isset($_POST['login']) && isset($_POST['password'])) 
+        {
+           foreach ($myInt as $key=>$value)
+           {
+             if ($key == $_POST['login'] && $value == $_POST['password']) 
+                {
+                header('Location: accept.html');
+                }
+            else 
+                {
+                header('Location: retry.html');
+                }
+        /*else 
+            {
+            header('Location: retry.html');
+            }*/     
+            }
         }
-    }
-        
-    ?>  
-</body>
-</html>
+?>   
